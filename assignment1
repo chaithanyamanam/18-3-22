@@ -1,0 +1,415 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Fri Mar 18 10:09:23 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table student(regno number(10),sname varchar2(10),group varchar2(10),email varchar2(50),phno number(15));
+create table student(regno number(10),sname varchar2(10),group varchar2(10),email varchar2(50),phno number(15))
+                                                         *
+ERROR at line 1:
+ORA-00904: : invalid identifier
+
+
+SQL> create table student(regno number(10),sname varchar2(10),group char(10),email varchar2(50),phno number(15));
+create table student(regno number(10),sname varchar2(10),group char(10),email varchar2(50),phno number(15))
+                                                         *
+ERROR at line 1:
+ORA-00904: : invalid identifier
+
+
+SQL> create table student(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15));
+create table student(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create table students(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15));
+create table students(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create table student1(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15));
+
+Table created.
+
+SQL> insert into(student1)values(&regno,'&sname','&sec','&email',&phno);
+Enter value for regno: 1
+Enter value for sname: chaithu
+Enter value for sec: mecs
+Enter value for email: chaithanya@gmail.com
+Enter value for phno: 98765432
+old   1: insert into(student1)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into(student1)values(1,'chaithu','mecs','chaithanya@gmail.com',98765432)
+insert into(student1)values(1,'chaithu','mecs','chaithanya@gmail.com',98765432)
+            *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno);
+Enter value for regno: 1
+Enter value for sname: chaithu
+Enter value for sec: mecs
+Enter value for email: chaithanya@gmail.com
+Enter value for phno: 98765432
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(1,'chaithu','mecs','chaithanya@gmail.com',98765432)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 1
+Enter value for sname: jaya
+Enter value for sec: mca
+Enter value for email: jayalakshmi@gmail.com
+Enter value for phno: 897643711
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(1,'jaya','mca','jayalakshmi@gmail.com',897643711)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 2
+Enter value for sname: /
+Enter value for sec:
+Enter value for email:
+Enter value for phno:
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(2,'/','','',)
+insert into student1(regno,sname,sec,email,phno)values(2,'/','','',)
+                                                                   *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select * from student1;
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         1 chaithu    mecs
+chaithanya@gmail.com                                 98765432
+
+         1 jaya       mca
+jayalakshmi@gmail.com                               897643711
+
+
+SQL> /
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         1 chaithu    mecs
+chaithanya@gmail.com                                 98765432
+
+         1 jaya       mca
+jayalakshmi@gmail.com                               897643711
+
+
+SQL> insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno);
+Enter value for regno: 3
+Enter value for sname: raji
+Enter value for sec: mscs
+Enter value for email: rajya@gmail.com
+Enter value for phno: 7864523
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(3,'raji','mscs','rajya@gmail.com',7864523)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 4
+Enter value for sname: prashi
+Enter value for sec: mpcs
+Enter value for email: praha@gmail.com
+Enter value for phno: 6574839
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(4,'prashi','mpcs','praha@gmail.com',6574839)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 5
+Enter value for sname: nishitha
+Enter value for sec: bba
+Enter value for email: nishitha@gmail.com
+Enter value for phno: 8756337
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(5,'nishitha','bba','nishitha@gmail.com',8756337)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 6
+Enter value for sname: swetha
+Enter value for sec: bca
+Enter value for email: swetha*gmail.com
+Enter value for phno: 9538756
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(6,'swetha','bca','swetha*gmail.com',9538756)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 7
+Enter value for sname: meghna
+Enter value for sec: mpc
+Enter value for email: meghana@gmail.com
+Enter value for phno: 567432
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(7,'meghna','mpc','meghana@gmail.com',567432)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 8
+Enter value for sname: ashi
+Enter value for sec: mscs
+Enter value for email: ashi@gmail.com
+Enter value for phno: 6738923
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(8,'ashi','mscs','ashi@gmail.com',6738923)
+
+1 row created.
+
+SQL> 9
+SP2-0226: Invalid line number
+SQL> /
+Enter value for regno: chandu
+Enter value for sname: btmc
+Enter value for sec: btmc
+Enter value for email: chandu@gmail.com
+Enter value for phno: 89342561
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(chandu,'btmc','btmc','chandu@gmail.com',89342561)
+insert into student1(regno,sname,sec,email,phno)values(chandu,'btmc','btmc','chandu@gmail.com',89342561)
+                                                       *
+ERROR at line 1:
+ORA-00984: column not allowed here
+
+
+SQL> select * from student1;
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         1 chaithu    mecs
+chaithanya@gmail.com                                 98765432
+
+         1 jaya       mca
+jayalakshmi@gmail.com                               897643711
+
+         3 raji       mscs
+rajya@gmail.com                                       7864523
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         4 prashi     mpcs
+praha@gmail.com                                       6574839
+
+         5 nishitha   bba
+nishitha@gmail.com                                    8756337
+
+         6 swetha     bca
+swetha*gmail.com                                      9538756
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         7 meghna     mpc
+meghana@gmail.com                                      567432
+
+         8 ashi       mscs
+ashi@gmail.com                                        6738923
+
+
+8 rows selected.
+
+SQL> /
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         1 chaithu    mecs
+chaithanya@gmail.com                                 98765432
+
+         1 jaya       mca
+jayalakshmi@gmail.com                               897643711
+
+         3 raji       mscs
+rajya@gmail.com                                       7864523
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         4 prashi     mpcs
+praha@gmail.com                                       6574839
+
+         5 nishitha   bba
+nishitha@gmail.com                                    8756337
+
+         6 swetha     bca
+swetha*gmail.com                                      9538756
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         7 meghna     mpc
+meghana@gmail.com                                      567432
+
+         8 ashi       mscs
+ashi@gmail.com                                        6738923
+
+
+8 rows selected.
+
+SQL> /
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         1 chaithu    mecs
+chaithanya@gmail.com                                 98765432
+
+         1 jaya       mca
+jayalakshmi@gmail.com                               897643711
+
+         3 raji       mscs
+rajya@gmail.com                                       7864523
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         4 prashi     mpcs
+praha@gmail.com                                       6574839
+
+         5 nishitha   bba
+nishitha@gmail.com                                    8756337
+
+         6 swetha     bca
+swetha*gmail.com                                      9538756
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         7 meghna     mpc
+meghana@gmail.com                                      567432
+
+         8 ashi       mscs
+ashi@gmail.com                                        6738923
+
+
+8 rows selected.
+
+SQL> insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno);
+Enter value for regno: 9
+Enter value for sname: sandy
+Enter value for sec: mecs
+Enter value for email: sandhya@gmail.com
+Enter value for phno: 75969234
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(9,'sandy','mecs','sandhya@gmail.com',75969234)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 10
+Enter value for sname: anu
+Enter value for sec: bba
+Enter value for email: anuhya@gmail.com
+Enter value for phno: 7645323
+old   1: insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno)
+new   1: insert into student1(regno,sname,sec,email,phno)values(10,'anu','bba','anuhya@gmail.com',7645323)
+
+1 row created.
+
+SQL> commit
+  2  ;
+
+Commit complete.
+
+SQL> select * from student1;
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         1 chaithu    mecs
+chaithanya@gmail.com                                 98765432
+
+         1 jaya       mca
+jayalakshmi@gmail.com                               897643711
+
+         3 raji       mscs
+rajya@gmail.com                                       7864523
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         4 prashi     mpcs
+praha@gmail.com                                       6574839
+
+         5 nishitha   bba
+nishitha@gmail.com                                    8756337
+
+         6 swetha     bca
+swetha*gmail.com                                      9538756
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+         7 meghna     mpc
+meghana@gmail.com                                      567432
+
+         8 ashi       mscs
+ashi@gmail.com                                        6738923
+
+         9 sandy      mecs
+sandhya@gmail.com                                    75969234
+
+
+     REGNO SNAME      SEC
+---------- ---------- ----------
+EMAIL                                                    PHNO
+-------------------------------------------------- ----------
+        10 anu        bba
+anuhya@gmail.com                                      7645323
+
+
+10 rows selected.
+
+SQL> commit
+  2  ;
+
+Commit complete.
+
+SQL>
