@@ -7,52 +7,9 @@ SQL> connect
 Enter user-name: system
 Enter password:
 Connected.
-SQL> create table student(regno number(10),sname varchar2(10),group varchar2(10),email varchar2(50),phno number(15));
-create table student(regno number(10),sname varchar2(10),group varchar2(10),email varchar2(50),phno number(15))
-                                                         *
-ERROR at line 1:
-ORA-00904: : invalid identifier
-
-
-SQL> create table student(regno number(10),sname varchar2(10),group char(10),email varchar2(50),phno number(15));
-create table student(regno number(10),sname varchar2(10),group char(10),email varchar2(50),phno number(15))
-                                                         *
-ERROR at line 1:
-ORA-00904: : invalid identifier
-
-
-SQL> create table student(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15));
-create table student(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15))
-             *
-ERROR at line 1:
-ORA-00955: name is already used by an existing object
-
-
-SQL> create table students(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15));
-create table students(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15))
-             *
-ERROR at line 1:
-ORA-00955: name is already used by an existing object
-
-
 SQL> create table student1(regno number(10),sname varchar2(10),sec varchar2(10),email varchar2(50),phno number(15));
 
 Table created.
-
-SQL> insert into(student1)values(&regno,'&sname','&sec','&email',&phno);
-Enter value for regno: 1
-Enter value for sname: chaithu
-Enter value for sec: mecs
-Enter value for email: chaithanya@gmail.com
-Enter value for phno: 98765432
-old   1: insert into(student1)values(&regno,'&sname','&sec','&email',&phno)
-new   1: insert into(student1)values(1,'chaithu','mecs','chaithanya@gmail.com',98765432)
-insert into(student1)values(1,'chaithu','mecs','chaithanya@gmail.com',98765432)
-            *
-ERROR at line 1:
-ORA-00928: missing SELECT keyword
-
-
 SQL> insert into student1(regno,sname,sec,email,phno)values(&regno,'&sname','&sec','&email',&phno);
 Enter value for regno: 1
 Enter value for sname: chaithu
@@ -413,3 +370,151 @@ SQL> commit
 Commit complete.
 
 SQL>
+SQL> create table exams(regno number(10),s1 number(10),s2 number(10),s3 number(10),total number(10),avg number(10));
+
+Table created.
+
+SQL> insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3);
+Enter value for regno: 1
+Enter value for s1: 90
+Enter value for s2: 99
+Enter value for s3: 98
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(1,90,99,98)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 2
+Enter value for s1: 89
+Enter value for s2: 80
+Enter value for s3: 90
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(2,89,80,90)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 3
+Enter value for s1: 96
+Enter value for s2: 97
+Enter value for s3: 90
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(3,96,97,90)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 4
+Enter value for s1: 99
+Enter value for s2: 88
+Enter value for s3: 80
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(4,99,88,80)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 5
+Enter value for s1: 98
+Enter value for s2: 94
+Enter value for s3: 89
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(5,98,94,89)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 6
+Enter value for s1: 91
+Enter value for s2: 92
+Enter value for s3: 93
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(6,91,92,93)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 7
+Enter value for s1: 95
+Enter value for s2: 85
+Enter value for s3: 80
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(7,95,85,80)
+
+1 row created.
+
+SQL> 8
+SP2-0226: Invalid line number
+SQL> /
+Enter value for regno: 8
+Enter value for s1: 88
+Enter value for s2: 77
+Enter value for s3: 66
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(8,88,77,66)
+
+1 row created.
+
+SQL> 9
+SP2-0226: Invalid line number
+SQL> /
+Enter value for regno: 9
+Enter value for s1: 85
+Enter value for s2: 73
+Enter value for s3: 92
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(9,85,73,92)
+
+1 row created.
+
+SQL> /
+Enter value for regno: 10
+Enter value for s1: 66
+Enter value for s2: 78
+Enter value for s3: 94
+old   1: insert into exam(regno,s1,s2,s3)values(&regno,&s1,&s2,&s3)
+new   1: insert into exam(regno,s1,s2,s3)values(10,66,78,94)
+
+1 row created.
+SQL> select * from exam
+  2  ;
+
+     REGNO         S1         S2         S3      TOTAL        AVG
+---------- ---------- ---------- ---------- ---------- ----------
+         1         90         98         99
+         1         90         99         98
+         2         89         80         90
+         3         96         97         90
+         4         99         88         80
+         5         98         94         89
+         6         91         92         93
+         7         95         85         80
+         8         88         77         66
+         9         85         73         92
+        10         66         78         94
+
+11 rows selected.
+SQL> update exam set total=s1+s2+s3;
+11 rows updated.
+SQL> update exam set avg=s1+s2+s3/3;
+
+11 rows updated.
+
+SQL> select * from exam;
+
+     REGNO         S1         S2         S3      TOTAL        AVG
+---------- ---------- ---------- ---------- ---------- ----------
+         1         90         98         99        287        221
+         1         90         99         98        287        222
+         2         89         80         90        259        199
+         3         96         97         90        283        223
+         4         99         88         80        267        214
+         5         98         94         89        281        222
+         6         91         92         93        276        214
+         7         95         85         80        260        207
+         8         88         77         66        231        187
+         9         85         73         92        250        189
+        10         66         78         94        238        175
+
+11 rows selected.
